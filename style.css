@@ -49,6 +49,7 @@
         color: var(--text-color);
         background-color: var(--main-bg);
         padding: .75rem;
+        min-height: 100dvh;
     }
 }
 
@@ -74,6 +75,7 @@
     }
 
     .layout {
+        min-height: calc(100dvh - 2 * 0.75rem);
         display: grid;
         gap: 1em;
         grid-template-areas: 
@@ -93,12 +95,25 @@
             "nav aside"
             "footer footer";
         }
+
+        .layout__nav {
+            align-self: start;
+        }
     }
     
     @media (min-width: 980px) {
-       
-    }
+        .layout {
+            grid-template-columns: 200px auto 300px;
+            grid-template-areas: 
+            "header header header"
+            "nav main aside"
+            "footer footer footer";
+        }
 
+        .layout__nav {
+            align-self: initial;
+        }
+    }
 
 }
 
@@ -229,3 +244,6 @@
         opacity: 0.8;
     }
 }
+
+
+
